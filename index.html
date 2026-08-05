@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
@@ -210,7 +211,7 @@ grid-template-columns:1fr;
 <h1>
 Star Dictionary
 </h1>
-
+	
 <p>
 Enter Dictionary
 </p>
@@ -219,8 +220,8 @@ Enter Dictionary
 <input 
 id="password"
 type="password"
-placeholder="password">
-
+placeholder="password"
+onkeydown="if(event.key==='Enter') login()">
 
 <button onclick="login()">
 Enter
@@ -277,15 +278,15 @@ placeholder="English">
 
 <input 
 id="meaning"
-placeholder=" فارسی">
+placeholder="فارسی">
 
+<input 
+id="englishMeaning"
+placeholder="English meaning (optional)">
 
 <button onclick="addWord()">
-
 Add
-
 </button>
-
 
 
 </div>
@@ -499,8 +500,9 @@ list.innerHTML+=`
 
 <div class="word">
 
+
 <h3>
-📘 ${item.word}
+${index + 1} - 📘 ${item.word}
 </h3>
 
 
@@ -524,10 +526,12 @@ ${item.meanings.join(" ، ")}
 `;
 
 
+
 });
 
 
 }
+
 
 
 
@@ -705,5 +709,6 @@ showWords();
 </body>
 
 </html>back
+
 
 
