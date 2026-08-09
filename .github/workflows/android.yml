@@ -34,8 +34,11 @@ jobs:
           mkdir -p www
           cp tools.html www/index.html
 
-      - name: Sync web app into existing Android project
-        run: npx cap sync android
+      - name: Create Android project
+        run: |
+          rm -rf android
+          npx cap add android
+          npx cap sync android
 
       - name: Build debug APK
         working-directory: android
