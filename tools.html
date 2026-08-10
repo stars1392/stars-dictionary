@@ -23,22 +23,22 @@ body.light{--bg:#f3f6fb;--panel:#fff;--panel2:#eaf0f8;--text:#172033;--muted:#66
 <div class="quick" id="cats"><button class="chip active" onclick="setCat('all',this)">همه</button><button class="chip" onclick="setCat('calc',this)">🧮 محاسبات</button><button class="chip" onclick="setCat('convert',this)">🔄 تبدیل‌گرها</button><button class="chip" onclick="setCat('utility',this)">🛠️ کاربردی</button><button class="chip" onclick="setCat('games',this)">🎮 بازی‌ها</button><button class="chip" onclick="setCat('fav',this)">⭐ موردعلاقه‌ها</button></div>
 <div class="sectionTitle"><h2>🧰 همه ابزارها</h2><span class="pill" id="countPill">16 ابزار</span></div>
 <div class="launcher" id="launcher">
-<div class="toolCard" data-id="calculator" data-cat="calc" data-name="ماشین حساب calculator" onclick="openTool('calculator')"><button class="star" onclick="event.stopPropagation();fav('calculator')">☆</div><span class="ico">🧮</span><b>ماشین حساب</b><small>محاسبات سریع + تاریخچه</small></button>
-<div class="toolCard" data-id="currency" data-cat="convert" data-name="ارز قیمت دلار یورو ریال" onclick="openTool('currency')"><button class="star" onclick="event.stopPropagation();fav('currency')">☆</div><span class="ico">💱</span><b>قیمت ارز</b><small>نرخ مرجع نسبت به ریال ایران</small></button>
-<div class="toolCard" data-id="money" data-cat="convert" data-name="تبدیل ارز ماشین حساب ارز" onclick="openTool('money')"><button class="star" onclick="event.stopPropagation();fav('money')">☆</div><span class="ico">💵</span><b>ماشین حساب ارز</b><small>تبدیل چند ارز با نرخ آنلاین</small></button>
-<div class="toolCard" data-id="units" data-cat="convert" data-name="تبدیل واحد طول وزن دما سرعت حجم" onclick="openTool('units')"><button class="star" onclick="event.stopPropagation();fav('units')">☆</div><span class="ico">🔄</span><b>تبدیل واحد</b><small>طول، وزن، دما، سرعت، حجم و داده</small></button>
-<div class="toolCard" data-id="date" data-cat="calc" data-name="تاریخ سن روز شمار" onclick="openTool('date')"><button class="star" onclick="event.stopPropagation();fav('date')">☆</div><span class="ico">📅</span><b>ابزار تاریخ</b><small>اختلاف دو تاریخ و شمارش روز</small></button>
-<div class="toolCard" data-id="percent" data-cat="calc" data-name="درصد تخفیف درصد calculator" onclick="openTool('percent')"><button class="star" onclick="event.stopPropagation();fav('percent')">☆</div><span class="ico">📊</span><b>محاسبه درصد</b><small>درصد، تخفیف و افزایش قیمت</small></button>
-<div class="toolCard" data-id="time" data-cat="utility" data-name="ساعت تایمر کرنومتر stopwatch timer" onclick="openTool('time')"><button class="star" onclick="event.stopPropagation();fav('time')">☆</div><span class="ico">⏱️</span><b>زمان</b><small>ساعت، تایمر و کرنومتر</small></button>
-<div class="toolCard" data-id="password" data-cat="utility" data-name="رمزساز password امنیت" onclick="openTool('password')"><button class="star" onclick="event.stopPropagation();fav('password')">☆</div><span class="ico">🔐</span><b>رمزساز</b><small>ساخت رمز قوی و تصادفی</small></button>
-<div class="toolCard" data-id="text" data-cat="utility" data-name="متن شمارش حروف کلمه text" onclick="openTool('text')"><button class="star" onclick="event.stopPropagation();fav('text')">☆</div><span class="ico">🔤</span><b>ابزار متن</b><small>شمارش کلمات و تبدیل حروف</small></button>
-<div class="toolCard" data-id="notes" data-cat="utility" data-name="یادداشت کارها todo note" onclick="openTool('notes')"><button class="star" onclick="event.stopPropagation();fav('notes')">☆</div><span class="ico">📝</span><b>یادداشت و کارها</b><small>ذخیره در همین دستگاه</small></button>
-<div class="toolCard" data-id="color" data-cat="utility" data-name="رنگ color hex rgb" onclick="openTool('color')"><button class="star" onclick="event.stopPropagation();fav('color')">☆</div><span class="ico">🎨</span><b>رنگ‌ساز</b><small>HEX و RGB و انتخاب رنگ</small></button>
-<div class="toolCard" data-id="qr" data-cat="utility" data-name="qr کد بارکد لینک" onclick="openTool('qr')"><button class="star" onclick="event.stopPropagation();fav('qr')">☆</div><span class="ico">▦</span><b>QR ساز</b><small>ساخت QR از متن یا لینک</small></button>
-<div class="toolCard" data-id="random" data-cat="utility" data-name="تصادفی تاس سکه عدد انتخاب" onclick="openTool('random')"><button class="star" onclick="event.stopPropagation();fav('random')">☆</div><span class="ico">🎲</span><b>تصادفی</b><small>تاس، سکه، عدد و انتخاب</small></button>
-<div class="toolCard" data-id="games" data-cat="games" data-name="بازی games سرگرمی" onclick="openTool('games')"><button class="star" onclick="event.stopPropagation();fav('games')">☆</div><span class="ico">🎮</span><b>مرکز بازی</b><small>۱۰ بازی کوتاه و سرگرم‌کننده</small></button>
-<div class="toolCard" data-id="gpa" data-cat="calc" data-name="معدل gpa مدرسه" onclick="openTool('gpa')"><button class="star" onclick="event.stopPropagation();fav('gpa')">☆</div><span class="ico">🎓</span><b>محاسبه معدل</b><small>میانگین نمره‌های مدرسه</small></button>
-<div class="toolCard" data-id="bmi" data-cat="calc" data-name="bmi شاخص توده بدنی" onclick="openTool('bmi')"><button class="star" onclick="event.stopPropagation();fav('bmi')">☆</div><span class="ico">📐</span><b>محاسبه‌گر BMI</b><small>محاسبه شاخص توده بدنی</small></button>
+<div class="toolCard" data-id="calculator" data-cat="calc" data-name="ماشین حساب calculator" onclick="openTool('calculator')"><button class="star" onclick="event.stopPropagation();fav('calculator')">☆</div><span class="ico">🧮</span><b>ماشین حساب</b><small>محاسبات سریع + تاریخچه</small></div>
+<div class="toolCard" data-id="currency" data-cat="convert" data-name="ارز قیمت دلار یورو ریال" onclick="openTool('currency')"><button class="star" onclick="event.stopPropagation();fav('currency')">☆</div><span class="ico">💱</span><b>قیمت ارز</b><small>نرخ مرجع نسبت به ریال ایران</small></div>
+<div class="toolCard" data-id="money" data-cat="convert" data-name="تبدیل ارز ماشین حساب ارز" onclick="openTool('money')"><button class="star" onclick="event.stopPropagation();fav('money')">☆</div><span class="ico">💵</span><b>ماشین حساب ارز</b><small>تبدیل چند ارز با نرخ آنلاین</small></div>
+<div class="toolCard" data-id="units" data-cat="convert" data-name="تبدیل واحد طول وزن دما سرعت حجم" onclick="openTool('units')"><button class="star" onclick="event.stopPropagation();fav('units')">☆</div><span class="ico">🔄</span><b>تبدیل واحد</b><small>طول، وزن، دما، سرعت، حجم و داده</small></div>
+<div class="toolCard" data-id="date" data-cat="calc" data-name="تاریخ سن روز شمار" onclick="openTool('date')"><button class="star" onclick="event.stopPropagation();fav('date')">☆</div><span class="ico">📅</span><b>ابزار تاریخ</b><small>اختلاف دو تاریخ و شمارش روز</small></div>
+<div class="toolCard" data-id="percent" data-cat="calc" data-name="درصد تخفیف درصد calculator" onclick="openTool('percent')"><button class="star" onclick="event.stopPropagation();fav('percent')">☆</div><span class="ico">📊</span><b>محاسبه درصد</b><small>درصد، تخفیف و افزایش قیمت</small></div>
+<div class="toolCard" data-id="time" data-cat="utility" data-name="ساعت تایمر کرنومتر stopwatch timer" onclick="openTool('time')"><button class="star" onclick="event.stopPropagation();fav('time')">☆</div><span class="ico">⏱️</span><b>زمان</b><small>ساعت، تایمر و کرنومتر</small></div>
+<div class="toolCard" data-id="password" data-cat="utility" data-name="رمزساز password امنیت" onclick="openTool('password')"><button class="star" onclick="event.stopPropagation();fav('password')">☆</div><span class="ico">🔐</span><b>رمزساز</b><small>ساخت رمز قوی و تصادفی</small></div>
+<div class="toolCard" data-id="text" data-cat="utility" data-name="متن شمارش حروف کلمه text" onclick="openTool('text')"><button class="star" onclick="event.stopPropagation();fav('text')">☆</div><span class="ico">🔤</span><b>ابزار متن</b><small>شمارش کلمات و تبدیل حروف</small></div>
+<div class="toolCard" data-id="notes" data-cat="utility" data-name="یادداشت کارها todo note" onclick="openTool('notes')"><button class="star" onclick="event.stopPropagation();fav('notes')">☆</div><span class="ico">📝</span><b>یادداشت و کارها</b><small>ذخیره در همین دستگاه</small></div>
+<div class="toolCard" data-id="color" data-cat="utility" data-name="رنگ color hex rgb" onclick="openTool('color')"><button class="star" onclick="event.stopPropagation();fav('color')">☆</div><span class="ico">🎨</span><b>رنگ‌ساز</b><small>HEX و RGB و انتخاب رنگ</small></div>
+<div class="toolCard" data-id="qr" data-cat="utility" data-name="qr کد بارکد لینک" onclick="openTool('qr')"><button class="star" onclick="event.stopPropagation();fav('qr')">☆</div><span class="ico">▦</span><b>QR ساز</b><small>ساخت QR از متن یا لینک</small></div>
+<div class="toolCard" data-id="random" data-cat="utility" data-name="تصادفی تاس سکه عدد انتخاب" onclick="openTool('random')"><button class="star" onclick="event.stopPropagation();fav('random')">☆</div><span class="ico">🎲</span><b>تصادفی</b><small>تاس، سکه، عدد و انتخاب</small></div>
+<div class="toolCard" data-id="games" data-cat="games" data-name="بازی games سرگرمی" onclick="openTool('games')"><button class="star" onclick="event.stopPropagation();fav('games')">☆</div><span class="ico">🎮</span><b>مرکز بازی</b><small>۱۰ بازی کوتاه و سرگرم‌کننده</small></div>
+<div class="toolCard" data-id="gpa" data-cat="calc" data-name="معدل gpa مدرسه" onclick="openTool('gpa')"><button class="star" onclick="event.stopPropagation();fav('gpa')">☆</div><span class="ico">🎓</span><b>محاسبه معدل</b><small>میانگین نمره‌های مدرسه</small></div>
+<div class="toolCard" data-id="bmi" data-cat="calc" data-name="bmi شاخص توده بدنی" onclick="openTool('bmi')"><button class="star" onclick="event.stopPropagation();fav('bmi')">☆</div><span class="ico">📐</span><b>محاسبه‌گر BMI</b><small>محاسبه شاخص توده بدنی</small></div>
 </div>
 <div class="sectionTitle"><h2>✨ داشبورد</h2><span class="pill">LIVE</span></div>
 <div class="dashboard">
@@ -101,4 +101,14 @@ document.addEventListener('click',function(e){
       if(preferred){ e.preventDefault(); preferred.click(); }
     });
     </script>
+
+<style>
+.toolCard{cursor:pointer;user-select:none}.toolCard .star{z-index:2}.toolCard:active{transform:scale(.985)}
+</style>
+<script>
+document.addEventListener('click',function(e){
+  const card=e.target.closest('.toolCard');
+  if(card && !e.target.closest('.star')){ const id=card.dataset.id; if(id&&typeof openTool==='function') openTool(id); }
+});
+</script>
 </body></html>
