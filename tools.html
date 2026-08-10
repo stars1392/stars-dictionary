@@ -86,4 +86,19 @@ document.addEventListener('click',function(e){
   if(card && !e.target.closest('.star')){ const id=card.dataset.id; if(id&&typeof openTool==='function') openTool(id); }
 });
 </script>
+<script>
+    /* ENTER_KEY_SUPPORT */
+    document.addEventListener('keydown', function(e){
+      if(e.key !== 'Enter' || e.isComposing) return;
+      const el=e.target;
+      if(!el || !['INPUT','SELECT','TEXTAREA'].includes(el.tagName)) return;
+      const modal=el.closest('.modal');
+      if(!modal) return;
+      const buttons=[...modal.querySelectorAll('button:not(.close):not(.star):not([disabled])')];
+      const preferred=buttons.find(b=>b.classList.contains('primary')) ||
+                      buttons.find(b=>b.classList.contains('green')) ||
+                      buttons.find(b=>/محاسبه|تبدیل|تایید|بررسی|ساخت|تولید|شروع|اجرا|جستجو|افزودن|ذخیره|ارسال|نتیجه|حساب/.test(b.textContent||''));
+      if(preferred){ e.preventDefault(); preferred.click(); }
+    });
+    </script>
 </body></html>
