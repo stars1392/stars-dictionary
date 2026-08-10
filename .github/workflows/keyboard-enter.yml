@@ -1,0 +1,49 @@
+name: Add Enter key support
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: ${{ !contains(github.event.head_commit.message, '[skip enter-fix]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add keyboard action support
+        shell: python
+        run: |
+          from pathlib import Path
+          p=Path('tools.html')
+          s=p.read_text(encoding='utf-8')
+          marker='/* ENTER_KEY_SUPPORT */'
+          if marker not in s:
+              patch=r'''<script>
+              /* ENTER_KEY_SUPPORT */
+              document.addEventListener('keydown', function(e){
+                if(e.key !== 'Enter' || e.isComposing) return;
+                const el=e.target;
+                if(!el || !['INPUT','SELECT','TEXTAREA'].includes(el.tagName)) return;
+                const modal=el.closest('.modal');
+                if(!modal) return;
+                const buttons=[...modal.querySelectorAll('button:not(.close):not(.star):not([disabled])')];
+                const preferred=buttons.find(b=>b.classList.contains('primary')) ||
+                                buttons.find(b=>b.classList.contains('green')) ||
+                                buttons.find(b=>/محاسبه|تبدیل|تایید|بررسی|ساخت|تولید|شروع|اجرا|جستجو|افزودن|ذخیره|ارسال|نتیجه|حساب/.test(b.textContent||''));
+                if(preferred){ e.preventDefault(); preferred.click(); }
+              });
+              </script>'''
+              s=s.replace('</body>',patch+'\n</body>',1)
+              p.write_text(s,encoding='utf-8')
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add tools.html
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'feat: Enter key runs tool actions [skip enter-fix]'
+          git push
