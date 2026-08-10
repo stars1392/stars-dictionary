@@ -1,0 +1,42 @@
+name: Attach Star Tools Supabase Sync
+on:
+  push:
+    paths:
+      - 'star-tools-sync.js'
+      - '.github/workflows/install-star-tools-sync.yml'
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  attach:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add Supabase scripts to tools.html
+        shell: python
+        run: |
+          from pathlib import Path
+          p=Path('tools.html')
+          s=p.read_text(encoding='utf-8')
+          tag='<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>\n<script src="./star-tools-sync.js"></script>\n'
+          if './star-tools-sync.js' not in s:
+              s=s.replace('</body>',tag+'</body>')
+              p.write_text(s,encoding='utf-8')
+          else:
+              print('Sync already attached')
+      - name: Commit
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools.html
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "feat: connect Star Tools to Supabase sync"
+          git push
+      - name: Remove one-time workflow
+        shell: bash
+        run: |
+          git rm .github/workflows/install-star-tools-sync.yml || true
+          git commit -m "chore: remove one-time sync installer" || true
+          git push || true
