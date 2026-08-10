@@ -76,4 +76,14 @@ let board=[];function newTtt(){board=Array(9).fill('');let el=$('ttt');el.innerH
 function startDefaults(){let d=new Date().toISOString().slice(0,10);document.querySelectorAll('input[type=date]').forEach(x=>{if(!x.value)x.value=d})}
 openTool;window.addEventListener('load',()=>{startDefaults();loadRates().catch(()=>{})});
 </script>
+
+<style>
+.toolCard{cursor:pointer;user-select:none}.toolCard .star{z-index:2}.toolCard:active{transform:scale(.985)}
+</style>
+<script>
+document.addEventListener('click',function(e){
+  const card=e.target.closest('.toolCard');
+  if(card && !e.target.closest('.star')){ const id=card.dataset.id; if(id&&typeof openTool==='function') openTool(id); }
+});
+</script>
 </body></html>
