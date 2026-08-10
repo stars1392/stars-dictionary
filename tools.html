@@ -96,4 +96,14 @@ document.addEventListener('click',function(e){
   if(card && !e.target.closest('.star')){ const id=card.dataset.id; if(id&&typeof openTool==='function') openTool(id); }
 });
 </script>
+
+<style>
+.toolCard{cursor:pointer;user-select:none}.toolCard .star{z-index:2}.toolCard:active{transform:scale(.985)}
+</style>
+<script>
+document.addEventListener('click',function(e){
+  const card=e.target.closest('.toolCard');
+  if(card && !e.target.closest('.star')){ const id=card.dataset.id; if(id&&typeof openTool==='function') openTool(id); }
+});
+</script>
 </body></html>
